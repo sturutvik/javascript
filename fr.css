@@ -1,0 +1,43 @@
+*{
+    margin-top: 10px;
+    padding: 0;
+    box-sizing: border-box;
+    background: gray;
+    font-family: sans-serif;
+    outline: none;
+    
+}
+.b{
+    background: ghostwhite;
+    font-weight: bold;
+    border-radius: 10px;
+    height: 3vh;
+    padding-left: 10px;
+
+}
+.rg{
+    background-color: gray;
+    width: 90px;
+    height: 25px;
+    color:black;
+    border-radius: 5px;
+    font-family: sans-serif;
+    font-size: 13px;
+    margin-left: 10px;
+    border-radius: 5px;
+    font-family: sans-serif;
+    font-size: 13px; 
+}
+.rg1{
+    background-color: gray;
+    width: 90px;
+    height: 25px;
+    color: black;
+    border-radius: 5px;
+    font-family: sans-serif;
+    font-size: 13px;
+    margin-left: 10px;
+    border-radius: 5px;
+    font-family: sans-serif;
+    font-size: 13px; 
+}

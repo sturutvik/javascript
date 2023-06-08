@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="fr.css">
+</head>
+<body>
+    <form action="#" name="userform" onsubmit="return validateform()" class="form">
+     <!--  -->
+     <label >Name:</label>
+     <input type="text" name="uname" id="uname" placeholder="Name:" class="b"><br><br>
+     <p id="errName" name="errName"></p><br>
+     <!--  -->
+     <label >Last name:</label>
+     <input type="text" name="lname" id="lname" placeholder="Last name:" class="b"><br><br>
+     <p id="errlName" name="errlName"></p><br>
+     <!--  -->
+     <label>Number:</label>
+     <input type="number" name="no" id="no" placeholder="Number:" class="b">
+     <p id="errno" name="errno"></p><br>
+     <!--  -->
+     <label>Email:</label>
+     <input type="text" name="email" id="email" placeholder="Email:" class="b">
+     <p id="erremail" name="erremail"></p><br>
+     <!--  -->
+     <label>Password:</label>
+     <input type="password" name="pwd" id="pwd" placeholder="Password:" class="b">
+     <p id="errpwd" name="errpwd"></p><br>
+     <!--  -->
+     <label>Confrim Password:</label>
+     <input type="password" name="cpwd" id="cpwd" placeholder="Confrim password:"class="b">
+     <p id="errcpwd" name="errcpwd"></p><br>
+     <!--  -->
+    <label>Address:</label>
+     <textarea name ="Address"  placeholder="Address:" class="b"></textarea><br>
+     <p id ="Address"  id="Address"></p><br>
+     <!--  -->
+     <label>DATE OF BIRTH:</label>
+     <input type="text" name="date" id="date"  class="b">
+     <p id="errdate" name="errdate"></p><br>
+     <!--  -->
+       <label> Color:</label>
+       <input type="color" id="fcolor" name="fcolor"class="b" ><br><br>
+     <!--  -->
+      <label>Gander:</label>
+      <input type="radio" name="g1" id="ml" value="male">Male  
+      <input type="radio" name="g1" id="fl" value="female">Female 
+      <p id="errg1" name="errg1"></p>
+      
+      <!--  -->
+      <label for="myfile">Select files:</label>
+      <input type="file" id="myfile" name="myfile" multiple><br><br>
+      <input type="submit" class="rg1">
+
+     <input type="submit" value="Register" name="btn1" class="rg"><br>
+     <!--  -->
+   
+    </form>
+    <script>
+        function validateform (){
+            let name = document.userform.uname.value;
+            let lname= document.userform.lname.value ;
+            let no=document.userform.no.value;
+            let pwd= document.userform.pwd.value;
+            let cpwd=document.userform.cpwd.value;
+            let email=document.userform.email.value;
+            let  Address=document.userform.Address.value;
+            let date =document.userform.date.value;
+            let g1 =document.userform.g1.value;
+            
+            // ------------------------------------------//
+
+            if(name == ''){
+                document.userform.uname.focus();
+                document.getElementById('errName').innerHTML = "Please enter username";
+                document.getElementById('errName').style.color = 'red';
+                return false;
+            } 
+            if(name.length<2){
+                document.userform.uname.focus();
+                document.getElementById('errName').innerHTML = "Name must be >2 characters";
+                document.getElementById('errName').style.color = 'red';
+                return false;
+            }
+            // -------------------- last name:-----------//
+
+            if(lname == ''){
+                document.userform.lname.focus();
+                document.getElementById('errlName').innerHTML = "Please enter last rname";
+                document.getElementById('errlName').style.color = 'red';
+                return false;
+            } 
+            if(lname.length<3){
+                document.userform.lname.focus();
+                document.getElementById('errlName').innerHTML = "Name must be >3 characters";
+                document.getElementById('errlName').style.color = 'red';
+                return false;
+            }
+            // --------------  no    -------------//
+
+            if (no== ''){
+                document.userform.no.focus();
+                document.getElementById('errno').innerHTML="please enter number";
+                document.getElementById('errno').style.color='red';
+                return false;
+
+
+            }
+            if (no<1|| no>100){
+                document.userform.no.focus();
+                document.getElementById('errno').innerHTML="Number be between 1-100";
+                document.getElementById('errno').style.color='red';
+                return false;
+
+            }
+            //  ---------------- password ---------------//
+
+            if (pwd == ''){
+               document.userform.pwd.focus();
+               document.getElementById('errpwd').innerHTML="please enter password";
+               document.getElementById('errpwd').style.color='red';
+               return false;
+
+            }
+            // ---------------- confirm password---------------//
+
+            if (cpwd == ''){
+             document.userform.cpwd.focus();
+             document.getElementById('errcpwd').innerHTML="Please enter confirm password";
+             document.getElementById('errcpwd').style.color='red';
+             return false;   
+
+            }
+            if(pwd != cpwd){
+             document.userform.cpwd.focus();
+             document.getElementById('errcpwd').innerHTML="Please enter same password";
+             document.getElementById('errcpwd').style.color='red';
+             return false;
+
+            }
+             let capital = pwd.charAt(0);
+             if(capital>='a' && capital<='z'){
+                document.userform.pwd.focus();
+                document.getElementById('errpwd').innerHTML="First character must be capital";
+                document.getElementById('errpwd').style.color='red';
+                return false;
+
+             }
+            //  ----------------- Email-------------------//
+            
+            var pattern= /^\w+( [\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            var ans=pattern.test(email);
+            if(ans == false){
+                document.userform.email.focus();
+                document.getElementById('erremail').innerHTML="piz enter valid email";
+                document.getElementById('erremail').style.color='red';
+                return false;
+            }
+            // ----------------------- address---------------------//
+               if(Address == ''){
+                document.userform.Address.focus();
+                document.getElementById('Address').innerHTML = "Please enter right Address";
+                document.getElementById('Address').style.color = 'red';
+                return false;
+            } 
+            if(Address.length<5){
+                document.userform.Address.focus();
+                document.getElementById('Address').innerHTML = "Name must be >5 characters";
+                document.getElementById('Address').style.color = 'red';
+                return false;
+            }
+            // ----------------------------  date of birth ------------------//
+            var pattern= /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
+             
+            var an=pattern.test(date);
+            if(an == false){
+                 document.userform.date.focus();
+                 document.getElementById('errdate').innerHTML="please enter right birth date";
+                 document.getElementById('errdate').style.color = 'red';
+                 return false;
+
+            }
+
+         // --------------------------- gender ---------------------------------//
+         if(g1 == ''){
+
+             document.getElementById('errg1').innerHTML="plase select gender:";
+             document.getElementById('errdate').style.color = 'red';
+             return false;
+
+           }
+        }
+        
+        
+
+    </script>
+    
+</body>
+</html>
